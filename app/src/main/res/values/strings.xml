@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Minipro</string>
+    <string name="God_of_War">God of War : RAGNAROK</string>
+    <string name="FFXVI">Final Fantasy XVI</string>
+    <string name="HW">Hogwarts Legacy</string>
+    <string name="Last_of_Us">The Last of Us : Part I</string>
+    <string name="GT7">GRAN TURISMO 7</string>
+    <string name="SM2">SPIDER - MAN 2</string>
+    <string name="SM">Marvel\'s Spider-Man 2</string>
+    <string name="Login" />
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="Click_to_register">Click to register</string>
+    <string name="register">Register</string>
+    <string name="click_to_login">Click to Login</string>
+    <string name="Name">Name</string>
+    <string name="surname">Surname</string>
+    <string name="phone">Phone Nubmer</string>
+    <string name="Address">Address</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="mainmain">หน้าหลัก</string>
+    <string name="cartmain">ตระกร้าสินค้า</string>
+    <string name="game1pricemain">ราคา : 1,305.00</string>
+    <string name="game2pricemain">ราคา : 2,290.00</string>
+    <string name="game3pricemain">ราคา : 2,450.00</string>
+    <string name="game4pricemain">ราคา : 2,290.00</string>
+    <string name="game5pricemain">ราคา : 2,290.00</string>
+    <string name="game6pricemain">ราคา : 2,290.00</string>
+    <string name="btusermain">ผู้ใช้งาน</string>
+    <string name="btmainmain">หน้าหลัก</string>
+    <string name="bthistorymain">ประวัติการสั่งซื้อ</string>
+    <string name="btlogoutmain">ออกจากระบบ</string>
+    <string name="phone_numberRE">Phone number</string>
+</resources>
