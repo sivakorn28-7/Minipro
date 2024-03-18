@@ -47,7 +47,7 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
@@ -117,14 +117,20 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="399dp"
-        android:layout_height="468dp"
+        android:layout_width="396dp"
+        android:layout_height="467dp"
         android:layout_marginBottom="4dp"
         android:background="#AFD7F6"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-9dp" />
+        tools:layout_editor_absoluteX="1dp">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tablehistory"
+            android:layout_width="match_parent"
+            android:layout_height="467dp" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

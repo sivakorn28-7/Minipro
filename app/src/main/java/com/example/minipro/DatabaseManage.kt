@@ -63,7 +63,7 @@ class DatabaseManage(private val context: Context) :
         return db.insert(TABLE_NAME_USERDATA, null, values)
     }
 
-    fun insertGame(userid: Long, gamename: String, gameprice: Double): Long {
+    fun insertGame(userid: Int, gamename: String, gameprice: Double): Long {
         val values = ContentValues().apply {
             put(COLUMN_USERID, userid)
             put(COLUMN_GAMENAME, gamename)
@@ -102,7 +102,7 @@ class DatabaseManage(private val context: Context) :
         return games
     }
 
-    data class UserInfo(val name: String, val surname: String, val email: String, val phoneNumber: String)
+    data class UserInfo(val userid: Int, val name: String, val surname: String, val email: String, val phoneNumber: String)
 
     fun getUserInfo(email: String, password: String): List<UserInfo> {
         val db = readableDatabase
@@ -113,18 +113,18 @@ class DatabaseManage(private val context: Context) :
 
         cursor.use {
             while (it.moveToNext()) {
+                val userid = it.getInt(it.getColumnIndexOrThrow(COLUMN_USERID))
                 val name = it.getString(it.getColumnIndexOrThrow(COLUMN_NAME))
                 val surname = it.getString(it.getColumnIndexOrThrow(COLUMN_SURNAME))
                 val email = it.getString(it.getColumnIndexOrThrow(COLUMN_EMAIL))
                 val phoneNumber = it.getString(it.getColumnIndexOrThrow(COLUMN_PHONE_NUMBER))
-                val userInfo = UserInfo(name, surname, email, phoneNumber)
+                val userInfo = UserInfo(userid, name, surname, email, phoneNumber)
                 userInfoList.add(userInfo)
             }
         }
 
         return userInfoList
     }
-
     fun updateUser(email: String, password: String, newEmail: String, newName: String, newSurname: String, newPhoneNumber: String, newPassword: String): Boolean {
         val db = writableDatabase
         val values = ContentValues().apply {

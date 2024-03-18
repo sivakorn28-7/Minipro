@@ -9,6 +9,7 @@
 
 
     <LinearLayout
+        android:id="@+id/linearLayout16"
         android:layout_width="match_parent"
         android:layout_height="111dp"
         android:layout_marginBottom="636dp"
@@ -32,14 +33,17 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="401dp"
-        android:layout_height="92dp"
+        android:id="@+id/linearLayout20"
+        android:layout_width="392dp"
+        android:layout_height="88dp"
         android:background="#AFD7F6"
         android:gravity="center"
         android:orientation="horizontal"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-4dp"
-        tools:layout_editor_absoluteY="296dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.411"
+        tools:ignore="MissingConstraints">
 
         <EditText
             android:id="@+id/surname"
@@ -49,7 +53,7 @@
             android:background="#FFFFFF"
             android:drawablePadding="8dp"
             android:hint="@string/surname"
-            android:inputType="textPassword"
+            android:inputType="text"
             android:padding="8dp" />
     </LinearLayout>
 
@@ -59,9 +63,12 @@
         android:background="#AFD7F6"
         android:gravity="center"
         android:orientation="horizontal"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-4dp"
-        tools:layout_editor_absoluteY="382dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.543"
+        tools:ignore="MissingConstraints">
 
         <EditText
             android:id="@+id/phone"
@@ -75,14 +82,19 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="401dp"
-        android:layout_height="102dp"
+        android:id="@+id/linearLayout15"
+        android:layout_width="395dp"
+        android:layout_height="103dp"
         android:background="#AFD7F6"
         android:gravity="center"
         android:orientation="horizontal"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-4dp"
-        tools:layout_editor_absoluteY="473dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.685"
+        tools:ignore="MissingConstraints">
 
         <EditText
             android:id="@+id/email"
@@ -92,20 +104,22 @@
             android:background="#FFFFFF"
             android:drawablePadding="8dp"
             android:hint="@string/email"
-            android:inputType="textPassword"
+            android:inputType="text"
             android:padding="8dp" />
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout18"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginBottom="592dp"
         android:background="#AFD7F6"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.214">
 
         <TextView
             android:id="@+id/textView7"
@@ -123,9 +137,12 @@
         android:background="#AFD7F6"
         android:gravity="center"
         android:orientation="horizontal"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="-4dp"
-        tools:layout_editor_absoluteY="212dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.293"
+        tools:ignore="MissingConstraints">
 
         <EditText
             android:id="@+id/name"
@@ -139,18 +156,23 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="130dp"
-        android:layout_height="55dp"
-        android:layout_marginBottom="140dp"
+        android:id="@+id/linearLayout17"
+        android:layout_width="129dp"
+        android:layout_height="54dp"
         android:background="#FFFAFA"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent">>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.867"><![CDATA[>
+
+
+
+        ]]>
 
         <Button
-            android:id="@+id/button6"
+            android:id="@+id/btnextsub"
             android:layout_width="30dp"
             android:layout_height="50dp"
             android:layout_weight="1"
