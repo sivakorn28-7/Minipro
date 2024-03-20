@@ -84,24 +84,58 @@ class DatabaseManage(private val context: Context) :
         return userExists
     }
 
-    fun readGame(userId: Long): List<Pair<String, Double>> {
+    fun readGame(userId: Int): List<Triple<Int, String, Double>> {
         val db = readableDatabase
-        val games = mutableListOf<Pair<String, Double>>()
+        val games = mutableListOf<Triple<Int, String, Double>>()
         val selection = "$COLUMN_USERID = ?"
         val selectionArgs = arrayOf(userId.toString())
-        val cursor = db.query(TABLE_NAME_GAMEDATA, null, selection, selectionArgs, null, null, null)
+        val cursor = db.query(
+            TABLE_NAME_GAMEDATA,
+            arrayOf(COLUMN_GAMEID, COLUMN_GAMENAME, COLUMN_GAMEPRICE),
+            selection,
+            selectionArgs,
+            null,
+            null,
+            null
+        )
 
         cursor.use {
             while (it.moveToNext()) {
+                val gameId = it.getInt(it.getColumnIndexOrThrow(COLUMN_GAMEID))
                 val gameName = it.getString(it.getColumnIndexOrThrow(COLUMN_GAMENAME))
                 val gamePrice = it.getDouble(it.getColumnIndexOrThrow(COLUMN_GAMEPRICE))
-                games.add(Pair(gameName, gamePrice))
+                val gameData = Triple(gameId, gameName, gamePrice)
+                games.add(gameData)
             }
         }
 
         return games
     }
 
+//    fun readAllGames(): List<Triple<Int, String, Double>> {
+//        val db = readableDatabase
+//        val games = mutableListOf<Triple<Int, String, Double>>()
+//        val cursor = db.query(
+//            TABLE_NAME_GAMEDATA,
+//            arrayOf(COLUMN_GAMEID, COLUMN_GAMENAME, COLUMN_GAMEPRICE),
+//            null,
+//            null,
+//            null,
+//            null,
+//            null
+//        )
+//
+//        cursor.use {
+//            while (it.moveToNext()) {
+//                val gameId = it.getInt(it.getColumnIndexOrThrow(COLUMN_GAMEID))
+//                val gameName = it.getString(it.getColumnIndexOrThrow(COLUMN_GAMENAME))
+//                val gamePrice = it.getDouble(it.getColumnIndexOrThrow(COLUMN_GAMEPRICE))
+//                games.add(Triple(gameId, gameName, gamePrice))
+//            }
+//        }
+//
+//        return games
+//    }
     data class UserInfo(val userid: Int, val name: String, val surname: String, val email: String, val phoneNumber: String)
 
     fun getUserInfo(email: String, password: String): List<UserInfo> {

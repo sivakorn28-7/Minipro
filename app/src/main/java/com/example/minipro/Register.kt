@@ -34,15 +34,19 @@ class Register : AppCompatActivity() {
         }
     }
 
-    private fun signupDatabase(email: String, password: String, name: String, surname: String, phoneNumber: String){
-        val insertedRowId = databaseHelper.insertUser(email , password , name, surname, phoneNumber)
-        if (insertedRowId != -1L){
-            Toast.makeText(this, "Signup Successful", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, Login::class.java)
-            startActivity(intent)
-            finish()
-        }else{
-            Toast.makeText(this, "Signup Failed", Toast.LENGTH_SHORT).show()
+    private fun signupDatabase(email: String, password: String, name: String, surname: String, phoneNumber: String) {
+        if (email.isEmpty() || password.isEmpty() || name.isEmpty() || surname.isEmpty() || phoneNumber.isEmpty()) {
+            Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show()
+        } else {
+            val insertedRowId = databaseHelper.insertUser(email, password, name, surname, phoneNumber)
+            if (insertedRowId != -1L) {
+                Toast.makeText(this, "Signup Successful", Toast.LENGTH_SHORT).show()
+                val intent = Intent(this, Login::class.java)
+                startActivity(intent)
+                finish()
+            } else {
+                Toast.makeText(this, "Signup Failed", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
