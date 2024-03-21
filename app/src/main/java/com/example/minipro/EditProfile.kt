@@ -42,20 +42,22 @@ class EditProfile : AppCompatActivity() {
         }
 
         binding.btedituser.setOnClickListener {
+            val newEmail = binding.email.text.toString().trim()
+            val newName = binding.name.text.toString().trim()
+            val newSurname = binding.surname.text.toString().trim()
+            val newPassword = binding.password.text.toString().trim()
+            val newPhone = binding.phone.text.toString().trim()
 
-            val newEmail = binding.email.text.toString()
-            val newName = binding.name.text.toString()
-            val newSurname = binding.surname.text.toString()
-            val newPassword = binding.password.text.toString()
-            val newPhone = binding.phone.text.toString()
-
-            val updated = databaseHelper.updateUser(email, password, newEmail, newName, newSurname, newPhone, newPassword)
-            if (updated) {
-                Toast.makeText(this, "User information updated successfully", Toast.LENGTH_SHORT).show()
+            if (newName.isEmpty() || newSurname.isEmpty() || newEmail.isEmpty() || newPassword.isEmpty() || newPhone.isEmpty()) {
+                Toast.makeText(this@EditProfile, "กรุณากรอกข้อมูลให้ครบถ้วน", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "Failed to update user information", Toast.LENGTH_SHORT).show()
+                val updated = databaseHelper.updateUser(email, password, newEmail, newName, newSurname, newPhone, newPassword)
+                if (updated) {
+                    Toast.makeText(this@EditProfile, "User information updated successfully", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this@EditProfile, "Failed to update user information", Toast.LENGTH_SHORT).show()
+                }
             }
-
         }
             //ปุ่มไปยังตระกร้าสินค้า
             btcartuser.setOnClickListener {

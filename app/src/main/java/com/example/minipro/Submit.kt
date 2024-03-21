@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.Toast
 import com.example.minipro.databinding.ActivityEditProfileBinding
 import com.example.minipro.databinding.ActivitySubmitBinding
 
@@ -34,12 +35,22 @@ class Submit : AppCompatActivity() {
         }
 
         btnextsub.setOnClickListener {
-            val intent = Intent(this, Address::class.java)
-            intent.putExtra("email", email)
-            intent.putExtra("password", password)
-            intent.putExtra("gname", gname)
-            intent.putExtra("gprice", gprice)
-            startActivity(intent)
+            val name = binding.name.text.toString().trim()
+            val surname = binding.surname.text.toString().trim()
+            val phone = binding.phone.text.toString().trim()
+            val email = binding.email.text.toString().trim() // เพิ่มการดึงข้อมูลอีเมล
+
+            if (name.isEmpty() || surname.isEmpty() || phone.isEmpty() || email.isEmpty()) {
+                // แจ้งเตือนให้กรอกข้อมูลให้ครบ
+                Toast.makeText(this@Submit, "กรุณากรอกข้อมูลให้ครบถ้วน", Toast.LENGTH_SHORT).show()
+            } else {
+                val intent = Intent(this@Submit, Address::class.java)
+                intent.putExtra("email", email)
+                intent.putExtra("password", password)
+                intent.putExtra("gname", gname)
+                intent.putExtra("gprice", gprice)
+                startActivity(intent)
+            }
         }
     }
 }
